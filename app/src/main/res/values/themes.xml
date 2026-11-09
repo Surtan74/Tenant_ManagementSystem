@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.Tenant_ManagementSystem" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>
