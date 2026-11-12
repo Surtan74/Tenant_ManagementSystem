@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -9,107 +9,128 @@
             type="com.example.tenant_managementsystem.Tenant" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        tools:context=".MainActivity">
+        android:fillViewport="false"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tenant Management System"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="24dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:minHeight="400dp"
+            android:padding="24dp"
+            tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/tenantNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tenant Name"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/titleTextView"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tenant Management System"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter tenant name"
-            android:inputType="textPersonName"
-            android:autofillHints="name"
-            app:layout_constraintTop_toBottomOf="@id/tenantNameLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/tenantNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tenant Name"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
-        <TextView
-            android:id="@+id/phoneLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/etName"
-            app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:hint="Enter tenant name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tenantNameLabel" />
 
-        <EditText
-            android:id="@+id/etPhone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter phone number"
-            android:inputType="phone"
-            android:autofillHints="phone"
-            app:layout_constraintTop_toBottomOf="@id/phoneLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/phoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Phone Number"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <TextView
-            android:id="@+id/rentLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rent Paid (KSh)"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/etPhone"
-            app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="phone"
+                android:hint="Enter phone number"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneLabel" />
 
-        <EditText
-            android:id="@+id/etRent"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter rent paid"
-            android:inputType="numberDecimal"
-            app:layout_constraintTop_toBottomOf="@id/rentLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/rentLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Rent Paid (KSh)"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPhone" />
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Save Tenant"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/etRent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <EditText
+                android:id="@+id/etRent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter rent paid"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rentLabel" />
 
-        <TextView
-            android:id="@+id/tenantResultTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{tenant == null ? `Tenant details will appear here` : tenant.summary()}"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/btnSave"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Save Tenant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tenantResultTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="12dp"
+                android:text="@{tenant == null ? `Tenant details will appear here` : tenant.summary()}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSave" />
+
+            <Button
+                android:id="@+id/btnCallTenant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="CALL TENANT"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tenantResultTextView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
