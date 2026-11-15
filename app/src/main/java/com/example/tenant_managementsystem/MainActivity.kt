@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d(TAG, "onCreate called")
+        Log.d(TAG, "MainActivity: onCreate")
 
         binding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_main
         )
 
-        // Restore the previously saved tenant after screen rotation
+        // Restore tenant details after screen rotation
         if (savedInstanceState != null) {
             val name = savedInstanceState.getString(KEY_TENANT_NAME)
             val phone = savedInstanceState.getString(KEY_TENANT_PHONE)
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // SAVE TENANT button
         binding.btnSave.setOnClickListener {
 
             val name = binding.etName.text.toString().trim()
@@ -100,8 +101,9 @@ class MainActivity : AppCompatActivity() {
             binding.etRent.text.clear()
         }
 
-        // CALL TENANT button functionality
+        // CALL TENANT button
         binding.btnCallTenant.setOnClickListener {
+
             val tenant = lastTenant
 
             if (tenant != null) {
@@ -121,6 +123,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Save tenant details before screen recreation
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
@@ -130,36 +133,36 @@ class MainActivity : AppCompatActivity() {
             outState.putString(KEY_TENANT_RENT, tenant.rent)
         }
 
-        Log.d(TAG, "onSaveInstanceState called")
+        Log.d(TAG, "MainActivity: onSaveInstanceState")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d(TAG, "onStart called")
+        Log.d(TAG, "MainActivity: onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "onResume called")
+        Log.d(TAG, "MainActivity: onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(TAG, "onPause called")
+        Log.d(TAG, "MainActivity: onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, "onStop called")
+        Log.d(TAG, "MainActivity: onStop")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d(TAG, "onRestart called")
+        Log.d(TAG, "MainActivity: onRestart")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "onDestroy called")
+        Log.d(TAG, "MainActivity: onDestroy")
     }
 }

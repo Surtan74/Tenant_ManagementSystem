@@ -1,10 +1,15 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+
+    // Safe Args plugin
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.example.tenant_managementsystem"
+
     compileSdk {
         version = release(37)
     }
@@ -27,10 +32,12 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         compose = true
         viewBinding = true
@@ -39,6 +46,10 @@ android {
 }
 
 dependencies {
+    // Navigation libraries added for this practical
+    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
+    implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.activity.ktx)
